@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Exception Management Dashboard</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Delivery Exception Management Dashboard</h1>
+
+        <!-- Delivery Exception Form -->
+        <div class="section">
+            <h2>Report Delivery Issue</h2>
+
+            <form id="exceptionForm">
+
+                <label for="deliveryId">Delivery ID</label>
+                <input type="text" id="deliveryId">
+
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName">
+
+                <label for="issueType">Issue Type</label>
+                <select id="issueType">
+                    <option value="">Select Issue Type</option>
+                    <option value="Address Not Found">Address Not Found</option>
+                    <option value="Customer Not Available">Customer Not Available</option>
+                    <option value="Payment Issue">Payment Issue</option>
+                    <option value="Package Damaged">Package Damaged</option>
+                </select>
+
+                <label>Priority</label>
+
+                <div class="radio-group">
+                    <input type="radio" name="priority" value="Low"> Low
+                    <input type="radio" name="priority" value="Medium"> Medium
+                    <input type="radio" name="priority" value="High"> High
+                </div>
+
+                <label for="notes">Notes</label>
+                <textarea id="notes" rows="4"></textarea>
+
+                <button type="submit">Submit Issue</button>
+
+            </form>
+
+            <p id="message"></p>
+        </div>
+
+        <!-- Dashboard Summary -->
+        <div class="section">
+            <h2>Issue Summary</h2>
+
+            <p>Open Issues: <span id="openCount">0</span></p>
+            <p>Resolved Issues: <span id="resolvedCount">0</span></p>
+        </div>
+
+        <!-- Filters -->
+        <div class="section">
+            <h2>Filters</h2>
+
+            <label for="filterIssueType">Filter by Issue Type</label>
+            <select id="filterIssueType">
+                <option value="All">All</option>
+                <option value="Address Not Found">Address Not Found</option>
+                <option value="Customer Not Available">Customer Not Available</option>
+                <option value="Payment Issue">Payment Issue</option>
+                <option value="Package Damaged">Package Damaged</option>
+            </select>
+
+            <label for="filterStatus">Filter by Status</label>
+            <select id="filterStatus">
+                <option value="All">All</option>
+                <option value="Open">Open</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+        </div>
+
+        <!-- Dashboard Table -->
+        <div class="section">
+            <h2>Reported Delivery Issues</h2>
+
+            <table id="issuesTable">
+                <thead>
+                    <tr>
+                        <th>Delivery ID</th>
+                        <th>Customer Name</th>
+                        <th>Issue Type</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
